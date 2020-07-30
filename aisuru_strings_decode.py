@@ -6,13 +6,12 @@ def readString(ql, addr):
     res = ""
     length = 0
     while True:
-        # read one byte at a time
-        c = ql.mem.read(addr, 1).decode()
+        read_char = ql.mem.read(addr, 1).decode()
 
-        if c == '\x00':
+        if read_char == "\x00":
             break
         length += 1
-        res += c
+        res += read_char
         addr += 1
     return res, length
 
