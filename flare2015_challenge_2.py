@@ -18,6 +18,8 @@ def check_input_chr(ql):
     # 004010D3 | E2 CD            | loop very_success.4010A2                |
     # 004010D5 | EB 02            | jmp very_success.4010D9                 |
     if (data > int(ql.reg.edi)):
+        # Track value in EDI to find if our input is right
+        # If the value in EDI changes during next iteration it means we have a right character
         f = open("log.txt", "w")
         f.write(str(ql.reg.edi))
         f.close()
